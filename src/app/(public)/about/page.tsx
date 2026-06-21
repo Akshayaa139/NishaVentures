@@ -9,7 +9,7 @@ export default async function AboutPage() {
 
   const whatIs = content?.whatIs || 'Galleria mellonella (the greater wax moth) has emerged as an incredibly valuable in vivo infection model. These larvae possess an innate immune system with cellular and humoral components that share high structural and functional similarities to the mammalian innate immune system.';
   const whyUse = content?.whyUse || 'Using Galleria mellonella larvae provides significant benefits over mammalian models like mice. They do not require complex ethical approvals (IACUC), are cost-effective, can be stored and incubated at human body temperature (37°C) to study mammalian-specific pathogens, and yield results within 24-48 hours.';
-  const rearing = content?.rearing || 'At Nisha Ventures, our larvae are produced under strict standardized protocols. We utilize an artificial diet consisting of oatflakes, dried yeast, honey, and glycerol to eliminate pathogens and ensure genetic consistency. The insects are kept in dark, temperature-controlled facilities at 27°C, and harvested at the 6th-instar phase (weight range 250–320 mg) when their immune system is fully developed and responsive.';
+  const rearing = content?.rearing || 'At Nisha Ventures, our larvae are produced under strict standardized protocols. We utilize an artificial diet consisting of oatflakes, dried yeast, honey, and glycerol to eliminate pathogens and ensure genetic consistency. The insects are kept in dark, temperature-controlled facilities at 27°C, and harvested at the 6th-instar phase (weight of minimum 0.200g each) when their immune system is fully developed and responsive.';
   const qa = content?.qa || 'Every batch of larvae undergoes strict quality assurance. We monitor development cycles, inspect for black spots (melanization) or stress indicators, and discard any sub-standard specimens. Shipping is done in insulated cooling boxes at ~15°C to keep the larvae dormant, preventing pupation and safeguarding their immunological integrity.';
 
   return (
@@ -177,8 +177,8 @@ export default async function AboutPage() {
               </p>
               <div className="flex space-x-6 pt-2">
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-emerald-400">250-320 mg</span>
-                  <span className="text-[10px] text-slate-400 uppercase font-semibold">Standard Weight Range</span>
+                  <span className="text-xl font-bold text-emerald-400">Min 0.200g</span>
+                  <span className="text-[10px] text-slate-400 uppercase font-semibold">Minimum Weight</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-emerald-400">6th Instar</span>

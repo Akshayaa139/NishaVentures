@@ -168,9 +168,9 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
           {filteredProducts.map((product) => (
             <Card key={product.id} className="flex flex-col h-full hover:shadow-md transition-shadow group">
               {/* Product Image Panel */}
-              <div className="relative h-64 bg-slate-100 overflow-hidden border-b border-slate-50 flex-shrink-0">
+              <div className="relative h-64 bg-slate-950 overflow-hidden border-b border-slate-50 flex-shrink-0">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 bg-contain bg-no-repeat bg-center transition-transform duration-500 group-hover:scale-105"
                   style={{ backgroundImage: `url('${product.image_url || '/images/larvae_research.png'}')` }}
                 />
                 <div className="absolute top-4 left-4 z-10">
@@ -190,8 +190,8 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
                     <CardTitle className="text-xl font-bold text-slate-800 leading-tight">
                       {product.name}
                     </CardTitle>
-                    <div className="text-lg font-black text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-100">
-                      ${Number(product.price).toFixed(2)}
+                    <div className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-100 uppercase tracking-wider whitespace-nowrap">
+                      Price on Enquiry
                     </div>
                   </div>
 
@@ -212,30 +212,32 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
 
               {/* Card Actions Footer */}
               <CardFooter className="p-6 bg-slate-50/50 border-t border-slate-50 flex gap-3">
-                <Button
-                  onClick={() => handleBuyNow(product)}
-                  disabled={product.stock <= 0}
-                  className="flex-1 flex items-center justify-center space-x-2"
-                >
-                  <ShoppingCart className="h-4.5 w-4.5" />
-                  <span>Buy Now / Inquire</span>
-                </Button>
-                
-                {/* Contact Seller via WhatsApp */}
+                {/* Contact Seller via WhatsApp - Primary Prominent Action */}
                 <a
                   href={`https://wa.me/918248612679?text=Hello%20Nisha%20Ventures%20team,%20I%20am%20interested%20in%20inquiring%20about%20ordering%20your%20${encodeURIComponent(product.name)}%20for%20our%20lab%20research.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0"
+                  className="flex-grow flex"
                 >
                   <Button
-                    variant="outline"
-                    className="border-emerald-200 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 bg-white"
-                    title="Chat via WhatsApp"
+                    className="w-full flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/10"
+                    disabled={product.stock <= 0}
                   >
-                    <MessageCircle className="h-4.5 w-4.5" />
+                    <MessageCircle className="h-4.5 w-4.5 fill-current" />
+                    <span>Enquire via WhatsApp</span>
                   </Button>
                 </a>
+
+                {/* Email Inquiry Dialog Modal - Secondary Action */}
+                <Button
+                  variant="outline"
+                  onClick={() => handleBuyNow(product)}
+                  disabled={product.stock <= 0}
+                  className="border-slate-200 text-slate-700 hover:bg-slate-50 flex items-center space-x-1.5"
+                >
+                  <ShoppingCart className="h-4.5 w-4.5 text-slate-500" />
+                  <span>Enquire via Email</span>
+                </Button>
               </CardFooter>
             </Card>
           ))}
@@ -347,7 +349,7 @@ export default function ProductCatalog({ initialProducts }: ProductCatalogProps)
               <Textarea
                 id="inq-msg"
                 required
-                placeholder="Describe your testing needs, target delivery dates, or size/weight constraints..."
+                placeholder="Describe your testing needs, target delivery dates, or size/weight constraints (minimum 0.200g)..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 disabled={isSubmitting}

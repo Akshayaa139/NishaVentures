@@ -66,19 +66,32 @@ export default function GalleryGrid({ initialItems }: GalleryGridProps) {
               key={item.id}
               className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden group hover:shadow-md transition-shadow relative"
             >
-              {/* Photo Area */}
-              <div className="relative h-64 w-full bg-slate-100 overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${item.image_url}')` }}
-                />
+              {/* Photo/Video Area */}
+              <div className="relative h-64 w-full bg-slate-950 overflow-hidden">
+                {item.image_url.endsWith('.mp4') ? (
+                  <video
+                    src={item.image_url}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    controls
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0 bg-contain bg-no-repeat bg-center transition-transform duration-500 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${item.image_url}')` }}
+                  />
+                )}
                 
                 {/* Zoom overlay on hover */}
-                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <div className="bg-white/95 text-slate-800 p-2 rounded-full shadow-md scale-75 group-hover:scale-100 transition-transform">
-                    <ZoomIn className="h-4.5 w-4.5 text-slate-700" />
+                {!item.image_url.endsWith('.mp4') && (
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                    <div className="bg-white/95 text-slate-800 p-2 rounded-full shadow-md scale-75 group-hover:scale-100 transition-transform">
+                      <ZoomIn className="h-4.5 w-4.5 text-slate-700" />
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3 z-10">

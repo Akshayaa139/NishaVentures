@@ -135,7 +135,7 @@ export default function ContactForm({ products }: ContactFormProps) {
               </div>
               <div>
                 <span className="font-bold text-slate-700 block">Email Address</span>
-                <a href="mailto:info@nishaventures.com" className="text-slate-500 hover:text-emerald-600 transition-colors block mt-0.5">info@nishaventures.com</a>
+                <a href="mailto:nishaventures007@gmail.com" className="text-slate-500 hover:text-emerald-600 transition-colors block mt-0.5">nishaventures007@gmail.com</a>
               </div>
             </div>
 
@@ -313,7 +313,7 @@ export default function ContactForm({ products }: ContactFormProps) {
                 <Textarea
                   id="cont-msg"
                   required
-                  placeholder="Specify developmental cohorts, weight constraints (e.g. 280mg matched), shipping logistics dates, or toxicity test criteria..."
+                  placeholder="Specify developmental cohorts, weight constraints (e.g. minimum 0.200g), shipping logistics dates, or toxicity test criteria..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   disabled={isSubmitting}

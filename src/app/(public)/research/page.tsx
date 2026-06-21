@@ -8,7 +8,7 @@ export default function ResearchPage() {
     {
       num: '01',
       title: 'Implement Standardized Rearing',
-      subtitle: 'Medical researchers require consistent data, so your larvae must be uniform in size and weight (ideally 250–320 mg each).',
+      subtitle: 'Medical researchers require consistent data, so your larvae must be uniform in size and weight (minimum 0.200g each).',
       icon: Microscope,
       color: 'from-emerald-500 to-teal-600',
       bgColor: 'bg-emerald-50 text-emerald-700 border-emerald-100',

@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-emerald-400 flex-shrink-0" />
-                <a href="mailto:info@nishaventures.com" className="hover:text-white transition-colors">info@nishaventures.com</a>
+                <a href="mailto:nishaventures007@gmail.com" className="hover:text-white transition-colors">nishaventures007@gmail.com</a>
               </li>
               <li className="flex items-center space-x-2">
                 <InstagramIcon className="h-4 w-4 text-emerald-400 flex-shrink-0" />
