@@ -16,7 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Nisha Ventures | Research-Grade Galleria mellonella Larvae",
   description: "Standardized, pathogen-free Galleria mellonella (wax moth) larvae. Premium in vivo models for drug toxicity, bacterial virulence, and antimicrobial R&D.",
-  keywords: ["Galleria mellonella", "wax moth larvae", "biotech model", "drug toxicity testing", "bacterial virulence studies", "antimicrobial research", "research models", "Nisha Ventures"],
+  keywords: ["Galleria mellonella", "wax moth larvae", "biotech model", "drug toxicity testing", "bacterial virulence studies", "antimicrobial research", "research models", "Nisha Ventures", "Galleria supplier", "Galleria producer", "procure Galleria larvae", "Galleria mellonella supplier", "wax moth supplier"],
   verification: {
     google: "S3-iWZJFrezmtrfTf80XVQztQ_FhQLdvkn2-M6x4ReY",
   },

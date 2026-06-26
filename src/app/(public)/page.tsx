@@ -177,7 +177,7 @@ export default async function HomePage() {
               
               <p className="text-slate-600 leading-relaxed text-sm">
                 Medical researchers and pharmaceutical labs face rising regulatory and cost barriers when testing on mice or other vertebrate models. 
-                <strong> Galleria mellonella (wax moth)</strong> larvae offer a highly efficient, ethically clean, and low-cost alternative. We specialize in rearing both <strong>black and white larvae</strong> cohorts.
+                As a leading research-grade <strong>Galleria supplier and producer</strong>, Nisha Ventures is the premier source to <strong>procure Galleria larvae</strong>. We specialize in rearing standardized black and white larvae cohorts under sterile laboratory conditions, offering a highly efficient, ethically clean, and low-cost model.
               </p>
 
               <div className="space-y-4 pt-2">
