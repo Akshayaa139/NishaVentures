@@ -25,7 +25,7 @@ export default async function AboutPage() {
             About Galleria mellonella Research Models
           </h1>
           <p className="text-slate-600 text-sm leading-relaxed">
-            Standardized larval insect models bridging the gap between cell culture in vitro assays and expensive vertebrate mammalian in vivo testing.
+            Nisha Ventures is a leading global <strong>Galleria producer and supplier</strong>. We provide standardized larval insect models to biotech laboratories, bridging the gap between cell culture assays and mammalian testing. Learn how to <strong>procure Galleria larvae</strong> for your clinical R&D.
           </p>
         </div>
       </section>
@@ -171,9 +171,9 @@ export default async function AboutPage() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white leading-tight">Committed to Scientific Integrity</h3>
+              <h3 className="text-2xl font-bold text-white leading-tight">Committed to Scientific Integrity as a Galleria Producer & Supplier</h3>
               <p className="text-slate-300 text-xs leading-relaxed">
-                We believe that reliable science starts with reliable models. By standardizing rearing feeds, developmental staging (harvesting exclusively at 6th-instar), weight classification, and strict transport conditions, Nisha Ventures guarantees research models that yield reproducible, highly publishable scientific outcomes.
+                We believe that reliable science starts with reliable models. As a premier **Galleria producer** and biological **supplier**, Nisha Ventures guarantees research models that yield reproducible, highly publishable scientific outcomes. When looking to **procure Galleria larvae** or wax moth models, laboratories choose our standardized cohorts.
               </p>
               <div className="flex space-x-6 pt-2">
                 <div className="flex flex-col">
