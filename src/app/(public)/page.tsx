@@ -117,7 +117,7 @@ export default async function HomePage() {
                     <span className="bg-emerald-500/90 text-slate-950 text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-1 rounded-full">
                       Genuine Research Models
                     </span>
-                    <h4 className="text-lg font-bold mt-1 text-slate-100">Original Galleria Larvae (White & Black)</h4>
+                    <h4 className="text-lg font-bold mt-1 text-slate-100">Original Galleria Models (White Larvae & Black Pupa)</h4>
                   </div>
 
                   {/* Video & Images Container */}
@@ -139,7 +139,7 @@ export default async function HomePage() {
                       <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
                         <div 
                           className="absolute inset-0 bg-contain bg-no-repeat bg-center"
-                          style={{ backgroundImage: `url('/images/galleria_larva_red.jpg')` }}
+                          style={{ backgroundImage: `url('/images/galleria_larva_well.jpg')` }}
                         />
                         <div className="absolute bottom-1.5 right-1.5 bg-slate-950/85 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
                           White Larvae
@@ -148,17 +148,17 @@ export default async function HomePage() {
                       <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
                         <div 
                           className="absolute inset-0 bg-contain bg-no-repeat bg-center"
-                          style={{ backgroundImage: `url('/images/larva_black.jpg')` }}
+                          style={{ backgroundImage: `url('/images/galleria_pupa.jpg')` }}
                         />
                         <div className="absolute bottom-1.5 right-1.5 bg-slate-950/85 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
-                          Black Larvae
+                          Black Pupa
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <p className="text-[11px] text-slate-300 leading-relaxed">
-                    Actual photographs and video of our larvae. We offer two types: black and white larvae, carefully standardized with a minimum weight of 0.200g.
+                    Actual photographs and video of our biological models. We offer white larvae and black pupae, carefully standardized for research.
                   </p>
                 </div>
               </div>

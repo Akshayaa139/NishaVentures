@@ -58,7 +58,7 @@ export interface GalleryItem {
   id: string;
   image_url: string;
   caption: string;
-  category: 'larvae' | 'facility' | 'packaging' | 'application';
+  category: 'eggs' | 'larvae' | 'pupae' | 'moths' | 'facility' | 'packaging' | 'application';
   created_at?: string;
 }
 
@@ -114,24 +114,45 @@ const defaultGallery = [
     created_at: new Date().toISOString()
   },
   {
+    id: 'gal-egg',
+    image_url: '/images/galleria_egg_real.jpg',
+    caption: 'Galleria mellonella eggs deposited on cardboard substrates (Eggs Stage)',
+    category: 'eggs',
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'gal-1',
-    image_url: '/images/galleria_larva_red.jpg',
-    caption: 'Standardized 6th-instar Galleria mellonella larvae inside petri dish (Original White Larvae)',
+    image_url: '/images/galleria_larva_well.jpg',
+    caption: 'Standardized White Galleria mellonella larvae on well plate (Original White Larvae)',
     category: 'larvae',
     created_at: new Date().toISOString()
   },
   {
-    id: 'gal-2',
+    id: 'gal-larva-user',
+    image_url: '/images/galleria_larva_user.jpg',
+    caption: 'Harvested White Galleria mellonella larvae cohort in clean rearing bowl',
+    category: 'larvae',
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'gal-3',
     image_url: '/images/larva_black.jpg',
     caption: 'Close-up of premium Black Galleria mellonella larvae cohort (Original Black Larvae)',
     category: 'larvae',
     created_at: new Date().toISOString()
   },
   {
-    id: 'gal-3',
-    image_url: '/images/galleria_larva_well.jpg',
-    caption: 'Original White Galleria larvae petri dish on black background',
-    category: 'larvae',
+    id: 'gal-2',
+    image_url: '/images/galleria_pupa.jpg',
+    caption: 'Premium Galleria mellonella Pupa (Original Black Pupa)',
+    category: 'pupae',
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'gal-adult',
+    image_url: '/images/galleria_adult_user.jpg',
+    caption: 'Breeding colony of adult Galleria mellonella moths inside glass container',
+    category: 'moths',
     created_at: new Date().toISOString()
   },
   {
@@ -169,7 +190,10 @@ const defaultSiteContent = {
   }
 };
 
+let isSeeding = false;
 const ensureMongoDbSeeded = async (database: any) => {
+  if (isSeeding) return;
+  isSeeding = true;
   try {
     // 1. Setup Admin User 'Rajesh' and remove old 'admin'
     const rajeshExists = await database.collection('admin_users').findOne({ username: 'Rajesh' });
@@ -201,10 +225,13 @@ const ensureMongoDbSeeded = async (database: any) => {
 
     // 3. Setup Gallery Items
     const galleryCount = await database.collection('gallery').countDocuments();
-    const hasOldGallery = await database.collection('gallery').findOne({
-      image_url: { $in: ['/images/galleria_adult.jpg', '/images/galleria_pupa.jpg'] }
+    
+    // Check if the database has eggs stage properly classified (using the new category 'eggs')
+    const hasEggsClassified = await database.collection('gallery').findOne({
+      category: 'eggs'
     });
-    if (hasOldGallery || galleryCount === 0) {
+    
+    if (!hasEggsClassified || galleryCount === 0 || galleryCount > 8) {
       console.log('[Seed] Re-seeding gallery items...');
       await database.collection('gallery').deleteMany({});
       const gallerySeed = defaultGallery.map(({ id, ...g }) => ({
@@ -233,6 +260,8 @@ const ensureMongoDbSeeded = async (database: any) => {
     }
   } catch (err) {
     console.error('[Seed] Failed to seed MongoDB:', err);
+  } finally {
+    isSeeding = false;
   }
 };
 

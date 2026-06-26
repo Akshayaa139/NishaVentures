@@ -8,7 +8,7 @@ interface GalleryItem {
   id: string;
   image_url: string;
   caption: string;
-  category: 'larvae' | 'facility' | 'packaging' | 'application';
+  category: 'eggs' | 'larvae' | 'pupae' | 'moths' | 'facility' | 'packaging' | 'application';
 }
 
 interface GalleryGridProps {
@@ -20,7 +20,10 @@ export default function GalleryGrid({ initialItems }: GalleryGridProps) {
 
   const categories = [
     { value: 'all', label: 'All Images' },
+    { value: 'eggs', label: 'Eggs' },
     { value: 'larvae', label: 'Larvae' },
+    { value: 'pupae', label: 'Pupae' },
+    { value: 'moths', label: 'Adult Moths' },
     { value: 'facility', label: 'Rearing Facility' },
     { value: 'packaging', label: 'Packaging & Shipping' },
     { value: 'application', label: 'Lab Applications' },

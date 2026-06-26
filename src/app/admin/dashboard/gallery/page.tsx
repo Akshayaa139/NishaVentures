@@ -8,7 +8,7 @@ interface GalleryItem {
   id: string;
   image_url: string;
   caption: string;
-  category: 'larvae' | 'facility' | 'packaging' | 'application';
+  category: 'eggs' | 'larvae' | 'pupae' | 'moths' | 'facility' | 'packaging' | 'application';
   created_at?: string;
 }
 
@@ -20,7 +20,7 @@ export default function AdminGalleryPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState('/images/galleria_larva_red.jpg');
   const [caption, setCaption] = useState('');
-  const [category, setCategory] = useState<'larvae' | 'facility' | 'packaging' | 'application'>('larvae');
+  const [category, setCategory] = useState<'eggs' | 'larvae' | 'pupae' | 'moths' | 'facility' | 'packaging' | 'application'>('larvae');
   
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -211,7 +211,10 @@ export default function AdminGalleryPage() {
               <Select
                 id="gal-cat"
                 options={[
-                  { value: 'larvae', label: 'Larvae (specimens)' },
+                  { value: 'eggs', label: 'Eggs Stage' },
+                  { value: 'larvae', label: 'Larvae Stage' },
+                  { value: 'pupae', label: 'Pupae Stage' },
+                  { value: 'moths', label: 'Adult Moths' },
                   { value: 'facility', label: 'Rearing Facility' },
                   { value: 'packaging', label: 'Packaging & Logistics' },
                   { value: 'application', label: 'Research Application' },
