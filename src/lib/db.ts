@@ -85,7 +85,7 @@ const defaultProducts = [
     description: 'Research-grade white Galleria mellonella larvae. Reared on a strictly controlled artificial nutrient diet. Size of the larva: minimum 0.200g each. Standardized and pathogen-free. Cultured for high reproducibility in toxicology studies, EPN production, plastic degradation, and other enzymatic research.',
     price: 0,
     stock: 5000,
-    image_url: '/images/galleria_larva_well.jpg',
+    image_url: '/images/galleria_white_larva.jpg',
     category: 'Larvae',
     research_use_case: 'Drug toxicology studies, Entomopathogenic nematodes (EPN) production, plastic degradation research, and enzymatic studies.',
     available: true,
@@ -114,37 +114,30 @@ const defaultGallery = [
     created_at: new Date().toISOString()
   },
   {
+    id: 'gal-white-larva',
+    image_url: '/images/galleria_white_larva.jpg',
+    caption: 'Standardized White Galleria mellonella Larvae cohort (Research Grade White Larvae)',
+    category: 'larvae',
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 'gal-black-larva',
+    image_url: '/images/larva_black.jpg',
+    caption: 'Standardized Black Galleria mellonella Larvae cohort (Research Grade Black Larvae)',
+    category: 'larvae',
+    created_at: new Date().toISOString()
+  },
+  {
     id: 'gal-egg',
     image_url: '/images/galleria_egg_real.jpg',
-    caption: 'Galleria mellonella eggs deposited on cardboard substrates (Eggs Stage)',
+    caption: 'Galleria mellonella eggs deposited on substrates (Galleria Egg Stage)',
     category: 'eggs',
     created_at: new Date().toISOString()
   },
   {
-    id: 'gal-1',
-    image_url: '/images/galleria_larva_well.jpg',
-    caption: 'Standardized White Galleria mellonella larvae on well plate (Original White Larvae)',
-    category: 'larvae',
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'gal-larva-user',
-    image_url: '/images/galleria_larva_user.jpg',
-    caption: 'Harvested White Galleria mellonella larvae cohort in clean rearing bowl',
-    category: 'larvae',
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'gal-3',
-    image_url: '/images/larva_black.jpg',
-    caption: 'Close-up of premium Black Galleria mellonella larvae cohort (Original Black Larvae)',
-    category: 'larvae',
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 'gal-2',
+    id: 'gal-pupa',
     image_url: '/images/galleria_pupa.jpg',
-    caption: 'Premium Galleria mellonella Pupa (Original Black Pupa)',
+    caption: 'Galleria mellonella pupae development phase (Galleria Pupa Stage)',
     category: 'pupae',
     created_at: new Date().toISOString()
   },
@@ -156,7 +149,7 @@ const defaultGallery = [
     created_at: new Date().toISOString()
   },
   {
-    id: 'gal-4',
+    id: 'gal-facility',
     image_url: '/images/rearing_facility.png',
     caption: 'Climate-controlled rearing racks maintained at 27°C and 60% humidity',
     category: 'facility',
@@ -209,12 +202,10 @@ const ensureMongoDbSeeded = async (database: any) => {
     }
 
     // 2. Setup Products (only white & black larvae, weight min 0.200g, price 0/hidden)
-    const hasOldProducts = await database.collection('products').countDocuments({
-      category: { $in: ['Breeding', 'Pupae'] }
-    });
+    const hasNewWhiteProduct = await database.collection('products').findOne({ image_url: '/images/galleria_white_larva.jpg' });
     const productCount = await database.collection('products').countDocuments();
-    if (hasOldProducts > 0 || productCount === 0 || productCount > 2) {
-      console.log('[Seed] Re-seeding products for larvae-only catalog...');
+    if (!hasNewWhiteProduct || productCount === 0 || productCount > 2) {
+      console.log('[Seed] Re-seeding products for larvae catalog with updated images...');
       await database.collection('products').deleteMany({});
       const productsSeed = defaultProducts.map(({ id, ...p }) => ({
         ...p,
@@ -224,15 +215,11 @@ const ensureMongoDbSeeded = async (database: any) => {
     }
 
     // 3. Setup Gallery Items
+    const hasWhiteLarvaItem = await database.collection('gallery').findOne({ image_url: '/images/galleria_white_larva.jpg' });
     const galleryCount = await database.collection('gallery').countDocuments();
     
-    // Check if the database has eggs stage properly classified (using the new category 'eggs')
-    const hasEggsClassified = await database.collection('gallery').findOne({
-      category: 'eggs'
-    });
-    
-    if (!hasEggsClassified || galleryCount === 0 || galleryCount > 8) {
-      console.log('[Seed] Re-seeding gallery items...');
+    if (!hasWhiteLarvaItem || galleryCount === 0 || galleryCount !== defaultGallery.length) {
+      console.log('[Seed] Re-seeding gallery items with updated images and stages...');
       await database.collection('gallery').deleteMany({});
       const gallerySeed = defaultGallery.map(({ id, ...g }) => ({
         ...g,

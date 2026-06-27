@@ -39,12 +39,12 @@ export default function AdminProductsPage() {
 
   // Default image choices for easy pick
   const imagePresets = [
-    { label: 'Larvae (Petri Dish / Red)', value: '/images/galleria_larva_red.jpg' },
-    { label: 'Larvae (Well Plate / Research)', value: '/images/galleria_larva_well.jpg' },
+    { label: 'White Larvae (Research Grade)', value: '/images/galleria_white_larva.jpg' },
+    { label: 'Black Larvae (Research Grade)', value: '/images/larva_black.jpg' },
+    { label: 'Galleria Egg Stage', value: '/images/galleria_egg_real.jpg' },
+    { label: 'Galleria Pupa Stage', value: '/images/galleria_pupa.jpg' },
     { label: 'Adult Moths (Jar)', value: '/images/galleria_adult.jpg' },
-    { label: 'Pupae (Brown Cocoon Staging)', value: '/images/galleria_pupa.jpg' },
     { label: 'Rearing Racks System', value: '/images/rearing_facility.png' },
-    { label: 'Biotech Lab Background', value: '/images/hero_lab_bg.png' },
   ];
 
   const fetchProducts = async () => {

@@ -80,22 +80,22 @@ export default function AdminLoginPage() {
               )}
 
               <div>
-                <Label htmlFor="login-username" className="text-slate-300">Username</Label>
+                <Label htmlFor="login-username" className="text-slate-200 font-semibold">Username</Label>
                 <Input
                   id="login-username"
                   type="text"
                   required
                   autoFocus
-                  placeholder="admin"
+                  placeholder="Enter username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   disabled={isSubmitting}
-                  className="bg-slate-900 border-slate-800 text-white placeholder-slate-500 focus:ring-emerald-500"
+                  className="bg-slate-950 border-slate-700 text-slate-100 text-base sm:text-sm font-medium placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 caret-emerald-400"
                 />
               </div>
 
               <div>
-                <Label htmlFor="login-password" className="text-slate-300">Password</Label>
+                <Label htmlFor="login-password" className="text-slate-200 font-semibold">Password</Label>
                 <Input
                   id="login-password"
                   type="password"
@@ -104,7 +104,7 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={isSubmitting}
-                  className="bg-slate-900 border-slate-800 text-white placeholder-slate-500 focus:ring-emerald-500"
+                  className="bg-slate-950 border-slate-700 text-slate-100 text-base sm:text-sm font-medium placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 caret-emerald-400"
                 />
               </div>
 

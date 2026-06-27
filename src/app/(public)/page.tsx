@@ -112,18 +112,18 @@ export default async function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent" />
                 
                 {/* Foreground Container: Original Larvae Showcase */}
-                <div className="absolute inset-0 flex flex-col p-5 justify-between z-10 text-white">
+                <div className="absolute inset-0 flex flex-col p-4 justify-between z-10 text-white overflow-y-auto">
                   <div className="space-y-1">
                     <span className="bg-emerald-500/90 text-slate-950 text-[10px] font-extrabold tracking-wider uppercase px-2.5 py-1 rounded-full">
                       Genuine Research Models
                     </span>
-                    <h4 className="text-lg font-bold mt-1 text-slate-100">Original Galleria Models (White Larvae & Black Pupa)</h4>
+                    <h4 className="text-base sm:text-lg font-bold mt-1 text-slate-100">Original Galleria Models (White & Black Larvae, Egg & Pupa)</h4>
                   </div>
 
                   {/* Video & Images Container */}
-                  <div className="grid grid-cols-1 gap-3 w-full">
-                    {/* Video Player (Muted loop, no background audio sound, no controls to avoid unmuting) */}
-                    <div className="relative h-52 rounded-xl overflow-hidden border border-white/10 bg-slate-950 shadow-inner group-hover:border-emerald-500/30 transition-colors">
+                  <div className="grid grid-cols-1 gap-2.5 w-full my-2">
+                    {/* Video Player (Muted loop) */}
+                    <div className="relative h-44 sm:h-48 rounded-xl overflow-hidden border border-white/10 bg-slate-950 shadow-inner group-hover:border-emerald-500/30 transition-colors">
                       <video 
                         src="/images/WhatsApp Video 2026-06-21 at 02.02.46.mp4"
                         className="w-full h-full object-contain"
@@ -134,31 +134,49 @@ export default async function HomePage() {
                       />
                     </div>
 
-                    {/* Original Photos Side by Side (bg-contain matches full portrait photo) */}
-                    <div className="grid grid-cols-2 gap-3 h-32">
-                      <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
+                    {/* Original Photos 4 Grid */}
+                    <div className="grid grid-cols-2 gap-2 h-44">
+                      <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
                         <div 
                           className="absolute inset-0 bg-contain bg-no-repeat bg-center"
-                          style={{ backgroundImage: `url('/images/galleria_larva_well.jpg')` }}
+                          style={{ backgroundImage: `url('/images/galleria_white_larva.jpg')` }}
                         />
-                        <div className="absolute bottom-1.5 right-1.5 bg-slate-950/85 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
+                        <div className="absolute bottom-1 right-1 bg-slate-950/90 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
                           White Larvae
                         </div>
                       </div>
-                      <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
+                      <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
+                        <div 
+                          className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+                          style={{ backgroundImage: `url('/images/larva_black.jpg')` }}
+                        />
+                        <div className="absolute bottom-1 right-1 bg-slate-950/90 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
+                          Black Larvae
+                        </div>
+                      </div>
+                      <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
+                        <div 
+                          className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+                          style={{ backgroundImage: `url('/images/galleria_egg_real.jpg')` }}
+                        />
+                        <div className="absolute bottom-1 right-1 bg-slate-950/90 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
+                          Galleria Egg
+                        </div>
+                      </div>
+                      <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-sm hover:border-white/20 transition-all bg-slate-900">
                         <div 
                           className="absolute inset-0 bg-contain bg-no-repeat bg-center"
                           style={{ backgroundImage: `url('/images/galleria_pupa.jpg')` }}
                         />
-                        <div className="absolute bottom-1.5 right-1.5 bg-slate-950/85 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
-                          Black Pupa
+                        <div className="absolute bottom-1 right-1 bg-slate-950/90 text-[8px] px-1.5 py-0.5 rounded font-semibold text-emerald-400">
+                          Galleria Pupa
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-slate-300 leading-relaxed">
-                    Actual photographs and video of our biological models. We offer white larvae and black pupae, carefully standardized for research.
+                  <p className="text-[10px] sm:text-[11px] text-slate-300 leading-tight">
+                    Actual photographs and video of our biological models. We supply high-grade White Larvae, Black Larvae, Galleria Egg clutches, and Pupa cohorts.
                   </p>
                 </div>
               </div>
